@@ -1,0 +1,32 @@
+{% include 'top.html' %}
+
+<div id="content">
+    <h1 class="page-title">Path Segments List</h1>
+    <br/>
+    <table class="pure-table">
+        <thead>
+            <tr>
+                <th>Start Station ID</th>
+                <th>End Station ID</th>
+                <th>Expected Travel Time (Seconds)</th>
+                <th>Stops Traversed</th>
+                <th>Triplegs</th>
+                <th>Coordinate Map Length</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for segment in users %}
+                <tr>
+                    <td>{{segment['startstationid']}}</td>
+                    <td>{{segment['endstationid']}}</td>
+                    <td>{{segment['expectedtraveltimeSeconds']}}</td>
+                    <td>{{segment['stopsTraversed']}}</td>
+                    <td>{{segment['triplegs']}}</td>
+                    <td>{{segment['coordinatemaplen']}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

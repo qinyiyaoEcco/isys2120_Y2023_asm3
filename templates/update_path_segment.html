@@ -1,0 +1,37 @@
+{% include 'top.html' %}
+
+<div id="content">
+    <h1 class="page-title">{{ page['title'] }}</h1>
+
+    <form method="POST" action="{{ url_for('update_path_segment_route', startstationid=segment['startstationid'], endstationid=segment['endstationid']) }}">
+        <label for="startstationid">Start Station ID:</label>
+        <input type="text" id="startstationid" name="startstationid" value="{{ segment['startstationid'] }}" readonly> <!-- This is readonly as it's an identifier -->
+        <br>
+
+        <label for="endstationid">End Station ID:</label>
+        <input type="text" id="endstationid" name="endstationid" value="{{ segment['endstationid'] }}" readonly> <!-- This is readonly as it's an identifier -->
+        <br>
+
+        <label for="expectedtraveltimeSeconds">Expected Travel Time (Seconds):</label>
+        <input type="text" id="expectedtraveltimeSeconds" name="expectedtraveltimeSeconds" value="{{ segment.get('expectedtraveltimeSeconds', '') }}">
+        <br>
+
+        <label for="stopsTraversed">Stops Traversed:</label>
+        <input type="text" id="stopsTraversed" name="stopsTraversed" value="{{ segment.get('stopsTraversed', '') }}">
+        <br>
+
+        <label for="triplegs">Triplegs:</label>
+        <input type="text" id="triplegs" name="triplegs" value="{{ segment.get('triplegs', '') }}">
+        <br>
+
+        <label for="coordinatemaplen">Coordinate Map Length:</label>
+        <input type="text" id="coordinatemaplen" name="coordinatemaplen" value="{{ segment.get('coordinatemaplen', '') }}">
+        <br>
+
+        <button type="submit">Update Path Segment</button>
+    </form>
+</div>
+
+</body>
+</html>
+
